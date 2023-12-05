@@ -1,3 +1,6 @@
+## Base NextJS / React / MUI / WalletConnect UI
+- using latest NextJS, React, MUI and Web3Modal libraries
+
 ## USING YARN (Recommend)
 
 - yarn install
