@@ -1,38 +1,37 @@
-import { Container, Grid } from '@mui/material';
+import { Container, Grid, Box } from '@mui/material';
 import { useRouter } from 'next/router';
 
 import VaultBalance from './balance/VaultBalance';
 import Header from './header/VaultHeader';
 import Apr from './apr/VaultApr';
-import Price from './price/VaultPrice';
 import Stats from './stats/VaultStats';
-import Tvl from './tvl/VaultTvl';
 import DepositWithdraw from './deposit-withdraw/DepositWithdraw';
 
 export default function VaultPage() {
   const router = useRouter();
   const { id } = router.query;
 
+  // Adjust the componentWidth object for the desired max widths
+  const componentWidth = { xs: 12, sm: 10, md: 8, lg: 6 };
+
   return (
-    <Container maxWidth="xl" sx={{ mt: 4, mb: 4, px: { xs: 2, sm: 4, md: 6, lg: 8, xl: 10 } }}> {/* Add top and bottom margin */}
+    <Container maxWidth="lg" sx={{ mt: 4, mb: 4, px: { xs: 2, sm: 3, md: 4, lg: 5 } }}>
       <Grid container spacing={3} justifyContent="center">
+        
+        {/* If the header should be full width, we can remove the maxWidth constraint */}
         <Grid item xs={12}>
           <Header />
         </Grid>
 
-        {/* Left column */}
-        <Grid item xs={10} md={8} lg={6}> {/* Adjust the size as needed */}
+        {/* Apply the same maxWidth to the left and right columns */}
+        <Grid item {...componentWidth}>
           <VaultBalance />
           <Apr />
-          {/* <Price />
-          <Tvl /> */}
           <Stats />
         </Grid>
 
-        {/* Right column */}
-        <Grid item xs={10} md={8} lg={6}> {/* Adjust the size as needed */}
-          <DepositWithdraw />        
-         
+        <Grid item {...componentWidth}>
+          <DepositWithdraw />
         </Grid>
       </Grid>
     </Container>
