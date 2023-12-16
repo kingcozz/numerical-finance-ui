@@ -14,7 +14,7 @@ const GREY = {
   600: '#5352b8', // Slightly darker than Text
   700: '#464883', // Darker than Text
   800: '#383d4e', // Even darker
-  900: '#2b313a', // Darkest
+  900: '#161718', // Darkest
 };
 
 const PRIMARY = {

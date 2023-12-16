@@ -1,5 +1,17 @@
 import React from 'react';
-import { Box, Card, Tabs, Tab, Typography, Button, TextField, InputAdornment, Switch, FormControlLabel, Stack } from '@mui/material';
+import {
+  Box,
+  Card,
+  Tabs,
+  Tab,
+  Typography,
+  Button,
+  TextField,
+  InputAdornment,
+  Switch,
+  FormControlLabel,
+  Stack,
+} from '@mui/material';
 import Iconify from '../../../../components/iconify';
 
 function TabPanel(props) {
@@ -13,11 +25,7 @@ function TabPanel(props) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          {children}
-        </Box>
-      )}
+      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
     </div>
   );
 }
@@ -28,12 +36,28 @@ function InputWithIcon({ icon, placeholder, endAdornment }) {
       fullWidth
       type="number"
       InputProps={{
-        startAdornment: <InputAdornment position="start"><Iconify icon={icon} /></InputAdornment>,
-        endAdornment: <InputAdornment position="end">{endAdornment}</InputAdornment>,
+        startAdornment: (
+          <InputAdornment position="start">
+            <Iconify icon={icon} width={24} height={24} />
+          </InputAdornment>
+        ),
+        endAdornment: endAdornment ? (
+          <InputAdornment position="end">{endAdornment}</InputAdornment>
+        ) : null,
       }}
       placeholder={placeholder}
       variant="outlined"
-      sx={{ mb: 2 }}
+      sx={{
+        mb: 2,
+        input: {
+          // color: 'text.primary' // Adjust as needed for your theme
+        },
+        '& .MuiOutlinedInput-root': {
+          background: 'background.paper', // Adjust as needed for your theme
+          border: '1px solid', // Custom border
+          borderColor: 'divider', // Adjust as needed for your theme
+        },
+      }}
     />
   );
 }
@@ -46,51 +70,83 @@ export default function DepositWithdraw() {
   };
 
   return (
-    <Card sx={{ width: '100%', borderRadius: 1 }}>
-      <Tabs value={tabValue} onChange={handleTabChange} aria-label="deposit-withdraw-tabs" variant="fullWidth" centered>
-        <Tab label="Deposit" />
-        <Tab label="Withdraw" />
+    <Card
+      sx={{ width: '100%', borderRadius: 1 }}
+    >
+      {/* Tabs */}
+      <Tabs
+        value={tabValue}
+        onChange={handleTabChange}
+        aria-label="deposit-withdraw-tabs"
+        variant="fullWidth"
+        centered
+        sx={{ borderBottom: '1px solid', borderColor: 'divider' }}
+      >
+        <Tab
+          label="Deposit"
+          sx={{
+            color: 'text.primary',
+            borderBottom: tabValue === 0 ? 2 : 0,
+            borderColor: 'primary.main',
+          }}
+        />
+        <Tab
+          label="Withdraw"
+          sx={{
+            color: 'text.primary',
+            borderBottom: tabValue === 1 ? 2 : 0,
+            borderColor: 'primary.main',
+          }}
+        />
       </Tabs>
       <TabPanel value={tabValue} index={0}>
         {/* Deposit Content */}
-        <Typography variant="subtitle1" gutterBottom>Max Deposit Limit: 10,686,722.01 GLP</Typography>
+        <Typography variant="subtitle1" gutterBottom sx={{ color: 'text.secondary' }}>
+          Max Deposit Limit: 15,297,303.50 GLP
+        </Typography>
         <InputWithIcon icon="cryptocurrency:glp" placeholder="0.00" endAdornment="GLP" />
-        <Stack direction="row" spacing={1} mb={2}>
-          <Button variant="outlined">25%</Button>
-          <Button variant="outlined">50%</Button>
-          <Button variant="outlined">75%</Button>
-          <Button variant="outlined">MAX</Button>
+        {/* Percentage Buttons */}
+        <Stack direction="row" spacing={1} mb={2} justifyContent="center">
+          {['25%', '50%', '75%', 'MAX'].map((percent) => (
+            <Button
+              key={percent}
+              variant="outlined"
+              sx={{ color: 'text.primary', borderColor: 'text.secondary' }}
+            >
+              {percent}
+            </Button>
+          ))}
         </Stack>
-        <Typography variant="subtitle2" sx={{ mb: 2 }}>
-          <Iconify icon="akar-icons:circle-check-fill" sx={{ color: 'success.main', mr: 1 }} />
-          You can buy GLP with assets from other chains.
-        </Typography>
         <InputWithIcon icon="cryptocurrency:glp" placeholder="0" endAdornment="nGLP" />
-        <Typography variant="subtitle2" gutterBottom>
+        <Typography variant="subtitle2" gutterBottom sx={{ color: 'text.secondary' }}>
           Fee Detail
-        </Typography>
-        <Button variant="contained" fullWidth sx={{ mt: 2 }}>Deposit</Button>
+        </Typography>       
       </TabPanel>
       <TabPanel value={tabValue} index={1}>
         {/* Withdraw Content */}
-        <Typography variant="subtitle1" gutterBottom>Max Withdraw Limit: 7,788,441.81 GLP</Typography>
+        <Typography variant="subtitle1" gutterBottom sx={{ color: 'text.secondary' }}>Max Withdraw Limit: 9,744,414.74 nGLP</Typography>
         <InputWithIcon icon="cryptocurrency:glp" placeholder="0.00" endAdornment="nGLP" />
-        <Stack direction="row" spacing={1} mb={2}>
-          <Button variant="outlined">25%</Button>
-          <Button variant="outlined">50%</Button>
-          <Button variant="outlined">75%</Button>
-          <Button variant="outlined">MAX</Button>
+        <Stack direction="row" spacing={1} mb={2} justifyContent="center">
+          {['25%', '50%', '75%', 'MAX'].map((percent) => (
+            <Button key={percent} variant="outlined" sx={{ color: 'text.primary', borderColor: 'text.secondary' }}>{percent}</Button>
+          ))}
         </Stack>
-        <Typography variant="subtitle2" gutterBottom>
-          Fee Optimization
-        </Typography>
-        <Switch checked={true} />
+        <FormControlLabel
+          control={<Switch checked />}
+          label="Fee Optimization"
+          sx={{ mb: 2, color: 'text.secondary' }}
+        />
         <InputWithIcon icon="cryptocurrency:glp" placeholder="0" endAdornment="GLP+DAI" />
-        <Typography variant="subtitle2" gutterBottom>
+        <Typography variant="subtitle2" gutterBottom sx={{ color: 'text.secondary' }}>
           Fee Detail
-        </Typography>
-        <Button variant="contained" fullWidth sx={{ mt: 2 }}>Withdraw</Button>
+        </Typography>       
       </TabPanel>
+      {/* Deposit/Withdraw Button */}
+      <Box sx={{ p: 2 }}>
+        <Button variant="contained" fullWidth sx={{ mt: 2, bgcolor: 'primary.main', '&:hover': { bgcolor: 'primary.dark' } }}>
+          {tabValue === 0 ? 'Deposit' : 'Withdraw'}
+        </Button>
+      </Box>
     </Card>
   );
 }

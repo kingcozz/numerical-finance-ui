@@ -14,7 +14,7 @@ export default function VaultPage() {
   const { id } = router.query;
 
   return (
-    <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}> {/* Add top and bottom margin */}
+    <Container maxWidth="xl" sx={{ mt: 4, mb: 4, px: { xs: 2, sm: 4, md: 6, lg: 8, xl: 10 } }}> {/* Add top and bottom margin */}
       <Grid container spacing={3} justifyContent="center">
         <Grid item xs={12}>
           <Header />
@@ -24,8 +24,8 @@ export default function VaultPage() {
         <Grid item xs={10} md={8} lg={6}> {/* Adjust the size as needed */}
           <VaultBalance />
           <Apr />
-          <Price />
-          <Tvl />
+          {/* <Price />
+          <Tvl /> */}
           <Stats />
         </Grid>
 

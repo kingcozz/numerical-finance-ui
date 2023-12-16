@@ -31,6 +31,8 @@ import useResponsive from 'hooks/useResponsive';
 import { useFetchLotteryData, useLotteryAccountInfo } from 'redux/slices/lottery/hooks';
 import Carousel, { CarouselDots } from 'components/carousel';
 
+import styles from './index.module.css';
+
 // sections
 
 // ----------------------------------------------------------------------
@@ -62,16 +64,26 @@ export default function GeneralAppPage() {
   // };
 
   // Vault Item Component
-  const VaultItem = ({ title, apr, myNGLP, deposit, logoSrc, id}) => {
+  const VaultItem = ({ title, apr, myNGLP, deposit, logoSrc, id }) => {
     const theme = useTheme(); // Use the theme for consistent styling
 
     return (
-      <Card sx={{ margin: theme.spacing(2, 0), minWidth: '50rem', cursor: 'pointer' }} onClick={() => router.push(`/dashboard/vault/${id}`)} >
+      <Card
+        sx={{ margin: theme.spacing(2, 0), minWidth: '50rem', cursor: 'pointer' }}
+        onClick={() => router.push(`/dashboard/vault/${id}`)}
+      >
         {' '}
         {/* Use theme spacing for consistent margins */}
         <CardContent sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%' }}>
-            <Image src={logoSrc} alt={title} width={256} height={256} /> {/* Logo image */}
+            <Image
+              src={logoSrc}
+              alt={title}
+              width={200}
+              height={200}
+              className={styles.imageHoverEffect}             
+            />{' '}
+            {/* Logo image */}
             <Box sx={{ ml: 5, flex: 1 }}>
               <Typography variant="h4" component="div">
                 {title}
@@ -112,7 +124,7 @@ export default function GeneralAppPage() {
                 sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '100%' }}
               >
                 <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'left' }}>
-                  <Typography variant="body2" sx={{ mt: 1, color: '#38b197'}}>
+                  <Typography variant="body2" sx={{ mt: 1, color: '#38b197' }}>
                     ${deposit}
                   </Typography>
                 </Box>
@@ -145,8 +157,8 @@ export default function GeneralAppPage() {
             apr="100"
             myNGLP="0 nGLP" // Replace with actual value
             deposit="44,449.64"
-            logoSrc="/assets/illustrations/shape2color.png" // Replace with the actual path to your logo image          
-            id="1" 
+            logoSrc="/assets/illustrations/shape2color.png" // Replace with the actual path to your logo image
+            id="1"
           />
           <VaultItem
             title="Vault 2 - Stable - Dividends"
