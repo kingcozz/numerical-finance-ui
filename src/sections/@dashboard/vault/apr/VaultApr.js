@@ -33,7 +33,7 @@ export default function CombinedInfoCard() {
         <Divider sx={{ my: 2, bgcolor: 'text.primary' }} />
 
         {/* nGLP Price Section */}
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        {/* <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <Typography variant="subtitle1">
             nGLP Price{' '}
             <Tooltip title="Current nGLP Price" placement="top">
@@ -50,21 +50,21 @@ export default function CombinedInfoCard() {
 
           <Typography variant="h3">$0.92</Typography>
         </Box>
-        <Divider sx={{ my: 2, bgcolor: 'text.primary' }} />
+        <Divider sx={{ my: 2, bgcolor: 'text.primary' }} /> */}
 
         {/* TVL Section */}
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <Typography variant="subtitle1">TVL</Typography>
           <Typography variant="h6"  color="#38b197">$43,604.01</Typography>
         </Box>
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        {/* <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <Typography variant="subtitle1">Deposit</Typography>
           <Typography variant="h6">$43,604.01</Typography>
         </Box>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <Typography variant="subtitle1">Capacity</Typography>
           <Typography variant="h6">$3,000,000.00</Typography>
-        </Box>
+        </Box> */}
       </CardContent>
     </Card>
   );

@@ -47,7 +47,7 @@ const INFO = {
 const SUCCESS = {
   lighter: '#70bf73',
   light: '#94cf96',
-  main: '#4caf50',
+  main: '#38b197',
   dark: '#3d8c40',
   darker: '#2e6930',
   contrastText: '#FFFFFF',

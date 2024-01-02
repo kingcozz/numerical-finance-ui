@@ -157,7 +157,7 @@ export default function GeneralAppPage() {
             apr="100"
             myNGLP="0 nGLP" // Replace with actual value
             deposit="44,449.64"
-            logoSrc="/assets/illustrations/shape2color.png" // Replace with the actual path to your logo image
+            logoSrc="/assets/stable vault locked.png" // Replace with the actual path to your logo image
             id="1"
           />
           <VaultItem
@@ -165,7 +165,7 @@ export default function GeneralAppPage() {
             apr="50"
             myNGLP="0 nGLP" // Replace with actual value
             deposit="44,449.64"
-            logoSrc="/assets/illustrations/shape2color.png" // Replace with the actual path to your logo image
+            logoSrc="/assets/stable vault locked.png" // Replace with the actual path to your logo image
             id="2"
           />
           <VaultItem
@@ -173,7 +173,7 @@ export default function GeneralAppPage() {
             apr="37.01"
             myNGLP="0 nGLP" // Replace with actual value
             deposit="44,449.64"
-            logoSrc="/assets/illustrations/shape2color.png" // Replace with the actual path to your logo image
+            logoSrc="/assets/stable vault liquid.png" // Replace with the actual path to your logo image
             id="3"
           />
           <VaultItem
@@ -181,7 +181,7 @@ export default function GeneralAppPage() {
             apr="37.01"
             myNGLP="0 nGLP" // Replace with actual value
             deposit="44,449.64"
-            logoSrc="/assets/illustrations/shape2color.png" // Replace with the actual path to your logo image
+            logoSrc="/assets/stable vault liquid.png" // Replace with the actual path to your logo image
             id="4"
           />
           {/* ... rest of your items ... */}

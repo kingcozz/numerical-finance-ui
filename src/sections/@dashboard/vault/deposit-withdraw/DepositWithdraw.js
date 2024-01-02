@@ -41,14 +41,67 @@ function TabPanel(props) {
 }
 
 function InputWithIcon({ value, balance }) {
-  const [currency, setCurrency] = useState('dai'); // default currency
+  const [currency, setCurrency] = useState('usdc'); // default currency
   const toggleCurrency = () => {
-    setCurrency(currency === 'dai' ? 'glp' : 'dai');
+    setCurrency(currency === 'usdt' ? 'usdc' : 'usdt');
   };
 
   // Placeholder for currency icons
-  const currencyIcon = currency === 'dai' ? 'cryptocurrency:dai' : 'cryptocurrency:glp';
-  const currencyEndAdornment = currency === 'dai' ? 'DAI' : 'nGLP';
+  const currencyIcon = currency === 'usdc' ? 'cryptocurrency:usdc' : 'cryptocurrency:usdt';
+  const currencyEndAdornment = currency === 'usdc' ? 'USDC' : 'USDT';
+
+  return (
+    <Box sx={{ mb: 2, p: 2, bgcolor: 'action.hover', borderRadius: 2 }}>
+      <CurrencyToggle onClick={toggleCurrency}>
+        <Iconify icon={currencyIcon} width={24} height={24} />
+        <Typography variant="body2" sx={{}}>
+          {currency.toUpperCase()}
+        </Typography>
+      </CurrencyToggle>
+      <TextField
+        fullWidth
+        type="number"
+        value={value}
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position="end">
+              <Typography variant="body2" sx={{ color: 'gray' }}>
+                {value} {currencyEndAdornment}
+              </Typography>
+            </InputAdornment>
+          ),
+          disableUnderline: true,
+          sx: {
+            fontSize: '1.5rem',
+            // color: 'text.primary',
+            '&.MuiInputBase-input': {
+              textAlign: 'right',
+            },
+          },
+        }}
+        variant="filled"
+      />
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mt: 1 }}>
+        <IconButton onClick={() => {}} size="small">
+          <Iconify icon="ant-design:wallet-outlined" />
+        </IconButton>
+        <Typography variant="body2" sx={{ color: 'gray' }}>
+          = ${balance} USD
+        </Typography>
+      </Box>
+    </Box>
+  );
+}
+
+function VaultInputWithIcon({ value, balance }) {
+  const [currency, setCurrency] = useState('Vault 1'); // default currency
+  const toggleCurrency = () => {
+    setCurrency(currency === 'Vault 1' ? 'Vault 1' : 'Vault 2');
+  };
+
+  // Placeholder for currency icons
+  const currencyIcon = currency === 'Vault 1' ? 'cryptocurrency:tnc' : 'cryptocurrency:tnc';
+  const currencyEndAdornment = currency === 'Vault 1' ? 'Vault 1' : 'Vault 2';
 
   return (
     <Box sx={{ mb: 2, p: 2, bgcolor: 'action.hover', borderRadius: 2 }}>
@@ -172,15 +225,15 @@ export default function DepositWithdraw() {
       </Tabs>
       <TabPanel value={tabValue} index={0}>
         {/* Deposit Content */}
-        <Box sx={{ display: 'flex', justifyContent: 'right' }}>
+        {/* <Box sx={{ display: 'flex', justifyContent: 'right' }}>
           <Typography variant="subtitle1" gutterBottom sx={{ color: 'gray' }}>
             Max Deposit Limit:
           </Typography>
           <Typography variant="subtitle1" gutterBottom sx={{ ml: 1 }}>
             15,297,303.50 GLP
           </Typography>
-        </Box>
-        <InputWithIcon icon="cryptocurrency:glp" placeholder="0.00" endAdornment="nGLP" />
+        </Box> */}
+        <InputWithIcon icon="cryptocurrency:usdc" placeholder="0.00" endAdornment="USDC" />
         <Stack direction="row" spacing={1} mb={2} justifyContent="center">
           {['25%', '50%', '75%', 'MAX'].map((percent) => (
             <Button
@@ -192,22 +245,22 @@ export default function DepositWithdraw() {
             </Button>
           ))}
         </Stack>
-        <OutputWithIcon icon="cryptocurrency:dai" value={0} />
+        <OutputWithIcon icon="cryptocurrency:tnc" value={0} />
         <Typography variant="subtitle2" gutterBottom sx={{ color: 'text.secondary' }}>
-          Fee Detail
+          Handling fees apply
         </Typography>
       </TabPanel>
       <TabPanel value={tabValue} index={1}>
         {/* Withdraw Content */}
-        <Box sx={{ display: 'flex', justifyContent: 'right' }}>
+        {/* <Box sx={{ display: 'flex', justifyContent: 'right' }}>
           <Typography variant="subtitle1" gutterBottom sx={{ color: 'gray' }}>
             Max Withdraw Limit:
           </Typography>
           <Typography variant="subtitle1" gutterBottom sx={{ ml: 1 }}>
             15,297,303.50 GLP
           </Typography>
-        </Box>
-        <InputWithIcon icon="cryptocurrency:glp" placeholder="0.00" endAdornment="nGLP" />
+        </Box> */}
+        <VaultInputWithIcon icon="cryptocurrency:tnc" placeholder="0.00" endAdornment="nGLP" />
         <Stack direction="row" spacing={1} mb={2} justifyContent="center">
           {['25%', '50%', '75%', 'MAX'].map((percent) => (
             <Button
@@ -219,14 +272,14 @@ export default function DepositWithdraw() {
             </Button>
           ))}
         </Stack>
-        <FormControlLabel
+        {/* <FormControlLabel
           control={<Switch checked />}
           label="Fee Optimization"
           sx={{ mb: 2, color: 'text.secondary' }}
-        />
-        <OutputWithIcon icon="cryptocurrency:dai" value={0} />
+        /> */}
+        <OutputWithIcon icon="cryptocurrency:usdc" value={0} />
         <Typography variant="subtitle2" gutterBottom sx={{ color: 'text.secondary' }}>
-          Fee Detail
+          Handling fees apply
         </Typography>
       </TabPanel>
       {/* Deposit/Withdraw Button */}

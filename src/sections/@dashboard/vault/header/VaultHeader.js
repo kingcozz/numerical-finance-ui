@@ -1,8 +1,9 @@
 import React from 'react';
 import { Box, Card, Typography, Button } from '@mui/material';
 import Iconify from 'components/iconify';
+import { description } from '_mock/assets';
 
-export default function Header() {
+export default function Header({ title, description, image}) {
   return (
     <Card
       sx={{
@@ -27,10 +28,10 @@ export default function Header() {
         }}
       />
       <Box sx={{ display: 'flex', alignItems: 'center', pl: '10px' }}>
-        <img src="/assets/illustrations/shape2color.png" alt="GLP Logo" style={{ width: '125px', height: '100px' }} />
+        <img src={image} alt="" style={{ width: '125px', height: '100px' }} />
         <Box sx={{ display: 'flex', flexDirection: 'column', ml: 5 }}>
-          <Typography variant="h3">GLP Market Neutral V2</Typography>
-          <Typography variant="body1">This strategy enables you to earn GLP APR while remaining protected against ETH/BTC price movements.</Typography>
+          <Typography variant="h3">{title}</Typography>
+          <Typography variant="body1">{description ?? 'This strategy enables you to earn GLP APR while remaining protected against ETH/BTC price movements.'}</Typography>
         </Box>
       </Box>
       <Button

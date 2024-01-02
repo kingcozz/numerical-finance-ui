@@ -23,8 +23,8 @@ export default function Balance() {
       <CardContent>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <Typography variant="subtitle1">
-            My nGLP
-            <Tooltip title="Information about nGLP" placement="top">
+            My Deposit
+            <Tooltip title="Information about Deposit" placement="top">
               <IconButton>
                 <Iconify
                   icon="material-symbols:info-outline"
@@ -36,12 +36,12 @@ export default function Balance() {
             </Tooltip>
           </Typography>
 
-          <Typography variant="h6">0 nGLP</Typography>
+          <Typography variant="h6">0 USDC</Typography>
         </Box>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <Typography variant="subtitle1">
-            Reserved{' '}
-            <Tooltip title="Information about Reserved nGLP" placement="top">
+            My share{' '}
+            <Tooltip title="Information about my share" placement="top">
               <IconButton>
                 <Iconify
                   icon="material-symbols:info-outline"
@@ -53,7 +53,7 @@ export default function Balance() {
             </Tooltip>
           </Typography>
 
-          <Typography variant="h6">0.00 nGLP</Typography>
+          <Typography variant="h6">0.00 %</Typography>
         </Box>
         <Divider sx={{ my: 2, bgcolor: 'text.primary' }} /> {/* Divider color adjusted */}
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -73,9 +73,9 @@ export default function Balance() {
 
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <Typography variant="h6" sx={{ mr: 1 }}>
-              0 DAI
+              0 USDC 
             </Typography>
-            <Button variant="contained" color="primary" size="small">
+            <Button variant="contained" color="success" size="small">
               Claim
             </Button>
           </Box>
