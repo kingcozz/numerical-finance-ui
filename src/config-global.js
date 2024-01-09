@@ -26,7 +26,7 @@ export const AUTH0_API = {
   domain: process.env.AUTH0_DOMAIN,
 };
 
-export const OPENAI_KEY = process.env.OPENAI_KEY;
+export const {OPENAI_KEY} = process.env;
 
 export const MAP_API = process.env.MAPBOX_API;
 
