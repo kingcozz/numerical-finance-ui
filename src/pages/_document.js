@@ -34,13 +34,13 @@ export default class MyDocument extends Document {
           {/* Meta */}
           <meta
             name="description"
-            content="Numerical.Fi"
+            content="Numerical Finance"
           />
           <meta name="keywords" content="react,material,kit,application,dashboard,admin,template" />
-          <meta name="author" content="Numerical.Fi" />
-          <meta name="og:image" content="https://i.imgur.com/mCQ662U.png" />          
-          <meta name="twitter:card" content="https://i.imgur.com/mCQ662U.png" />
-          <meta name="og:title" content="Numerical.Fi" />
+          <meta name="author" content="Numerical Finance" />
+          <meta name="og:image" content="https://i.imgur.com/AJy6ZQ7.png" />          
+          <meta name="twitter:card" content="https://i.imgur.com/AJy6ZQ7.png" />
+          <meta name="og:title" content="Numerical Finance" />
 
         </Head>
 
