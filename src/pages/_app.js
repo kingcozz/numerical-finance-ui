@@ -161,8 +161,8 @@ export default function MyApp(props) {
       <CacheProvider value={emotionCache}>
         <Head>
           <meta name="viewport" content="initial-scale=1, width=device-width" />
-          <meta name="og:image" content="https://i.imgur.com/mCQ662U.png" />          
-          <meta name="twitter:card" content="https://i.imgur.com/mCQ662U.png" />
+          <meta name="og:image" content="https://i.imgur.com/AJy6ZQ7.png" />          
+          <meta name="twitter:card" content="https://i.imgur.com/AJy6ZQ7.png" />
           <meta name="og:title" content="Numerical Finance" />
         </Head>
 
